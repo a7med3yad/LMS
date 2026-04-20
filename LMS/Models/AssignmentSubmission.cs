@@ -1,4 +1,4 @@
-﻿using LMS.Models;
+using LMS.Models;
 
 namespace LMS.Entities
 {
@@ -10,7 +10,7 @@ namespace LMS.Entities
         public int Grade { get; set; }
         public string? Feedback { get; set; }
         public DateTime SubmittedAt { get; set; } = DateTime.UtcNow;
-        public DateTime GradedAt { get; set; } 
+        public DateTime? GradedAt { get; set; } 
 
         public Guid AssignmentId { get; set; }
         public Assignment Assignment { get; set; } = null!;
