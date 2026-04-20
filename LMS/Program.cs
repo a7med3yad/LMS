@@ -1,9 +1,13 @@
-﻿using LMS.Api.Services;
+using LMS.Api.Services;
+using LMS.Application.Services;
 using LMS.Application.Services.AuthServices;
+using LMS.Application.Services.Interfaces;
 using LMS.Common;
 using LMS.Data;
 using LMS.Infrastructure.Services;
 using LMS.Models;
+using LMS.Repositories;
+using LMS.Repositories.Interfaces;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Facebook;
 using Microsoft.AspNetCore.Authentication.Google;
@@ -68,16 +72,43 @@ builder.Services.AddOpenApi();
 #endregion
 
 #region Dependency Injection
-builder.Services.AddScoped<AuthService>();
-builder.Services.AddScoped<TokenService>();
-builder.Services.AddScoped<OtpService>();
-builder.Services.AddScoped<EmailService>();
-builder.Services.AddScoped<OAuthService>();
+
+// Repositories
+builder.Services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
+builder.Services.AddScoped<IEnrollmentRepository, EnrollmentRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAssignmentRepository, AssignmentRepository>();
+builder.Services.AddScoped<IExamRepository, ExamRepository>();
+builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+// Application Services
+builder.Services.AddScoped<AuthService>();                               // ✅ DONE
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ICourseService, CourseService>();
+builder.Services.AddScoped<IMaterialService, MaterialService>();
+builder.Services.AddScoped<IAssignmentService, AssignmentService>();
+builder.Services.AddScoped<IExamService, ExamService>();
+builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddScoped<IVoucherService, VoucherService>();
+builder.Services.AddScoped<INotificationService, NotificationService>();
+
+// Infrastructure Services
+builder.Services.AddScoped<TokenService>();                              // ✅ DONE
+builder.Services.AddScoped<OtpService>();                                // ✅ DONE
+builder.Services.AddScoped<EmailService>();                              // ✅ DONE
+builder.Services.AddScoped<OAuthService>();                              // ✅ DONE
+builder.Services.AddScoped<IStripeService, StripeService>();
+
 #endregion
 
-#region Email Settings
+#region Settings
 builder.Services.Configure<EmailSettings>(
     builder.Configuration.GetSection("EmailSettings"));
+builder.Services.Configure<StripeSettings>(
+    builder.Configuration.GetSection("Stripe"));
 #endregion
 
 var app = builder.Build();
