@@ -1,6 +1,6 @@
 using LMS.Application.Services.Interfaces;
-using LMS.Common.Constants;
-using LMS.DTOs.Vouchers;
+using LMS.Domain.Common.Constants;
+using LMS.Domain.DTOs.Vouchers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;

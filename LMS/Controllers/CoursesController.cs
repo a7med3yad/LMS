@@ -1,7 +1,7 @@
 using LMS.Application.Services.Interfaces;
-using LMS.Common.Constants;
-using LMS.Common.Pagination;
-using LMS.DTOs.Courses;
+using LMS.Domain.Common.Constants;
+using LMS.Domain.Common.Pagination;
+using LMS.Domain.DTOs.Courses;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;

@@ -1,7 +1,7 @@
 using LMS.Application.Services.Interfaces;
-using LMS.Common.Constants;
-using LMS.DTOs.Enrollments;
-using LMS.DTOs.Payments;
+using LMS.Domain.Common.Constants;
+using LMS.Domain.DTOs.Enrollments;
+using LMS.Domain.DTOs.Payments;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
