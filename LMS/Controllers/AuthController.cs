@@ -1,12 +1,11 @@
-﻿using LMS.Api.DTOs.Auth;
-using LMS.DTOs.Auth;
-using Microsoft.AspNetCore.Authentication;
+﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Facebook;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using LMS.Application.Services.AuthServices;
+using LMS.Domain.DTOs.Auth;
 
 namespace LMS.Api.Controllers
 {

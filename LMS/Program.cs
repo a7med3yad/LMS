@@ -1,16 +1,19 @@
-using LMS.Api.Services;
 using LMS.Application.Services;
 using LMS.Application.Services.AuthServices;
 using LMS.Application.Services.Interfaces;
-using LMS.Common;
-using LMS.Data;
+using LMS.Domain.Common;
+using LMS.Domain.Models;
+using LMS.Domain.Repositories.Intercaces;
+using LMS.Domain.Repositories.Interfaces;
+using LMS.Infrastructure.Persistence;
+using LMS.Infrastructure.Repositories;
 using LMS.Infrastructure.Services;
-using LMS.Models;
 using LMS.Repositories;
 using LMS.Repositories.Interfaces;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Facebook;
 using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
@@ -29,7 +32,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole<Guid>>()
     .AddDefaultTokenProviders();
 #endregion
 
-#region Authentication (FIXED - NO DUPLICATION)
+#region Authentication
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -84,7 +87,7 @@ builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // Application Services
-builder.Services.AddScoped<AuthService>();                               // ✅ DONE
+builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddScoped<IMaterialService, MaterialService>();
@@ -96,10 +99,10 @@ builder.Services.AddScoped<IVoucherService, VoucherService>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
 
 // Infrastructure Services
-builder.Services.AddScoped<TokenService>();                              // ✅ DONE
-builder.Services.AddScoped<OtpService>();                                // ✅ DONE
-builder.Services.AddScoped<EmailService>();                              // ✅ DONE
-builder.Services.AddScoped<OAuthService>();                              // ✅ DONE
+builder.Services.AddScoped<TokenService>();
+builder.Services.AddScoped<OtpService>();
+builder.Services.AddScoped<EmailService>();
+builder.Services.AddScoped<OAuthService>();
 builder.Services.AddScoped<IStripeService, StripeService>();
 
 #endregion
@@ -115,12 +118,18 @@ var app = builder.Build();
 
 #region Middleware Pipeline
 
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-    app.MapScalarApiReference();
-}
+// ✅ Enable OpenAPI + Scalar in ALL environments
+app.MapOpenApi();
+app.MapScalarApiReference();
 
+// ✅ Handle reverse proxy (important for hosting)
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor |
+                       ForwardedHeaders.XForwardedProto
+});
+
+// ⚠️ Keep only if HTTPS works on your host
 app.UseHttpsRedirection();
 
 app.UseAuthentication();   // MUST be before Authorization

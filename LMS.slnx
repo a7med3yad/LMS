@@ -1,3 +1,6 @@
 <Solution>
+  <Project Path="LMS.Application/LMS.Application.csproj" Id="7414d9c1-efe7-41eb-b0e6-8a3ae73653e6" />
+  <Project Path="LMS.Domain/LMS.Domain.csproj" Id="2bde4a0b-3c34-4d6c-91ca-cd7c249923b8" />
+  <Project Path="LMS.Infrastructure/LMS.Infrastructure.csproj" Id="feec85ec-a22e-4c2b-adfd-4c812136c8fb" />
   <Project Path="LMS/LMS.csproj" />
 </Solution>

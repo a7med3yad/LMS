@@ -1,6 +1,6 @@
 using LMS.Application.Services.Interfaces;
-using LMS.Common.Pagination;
-using LMS.DTOs.Notifications;
+using LMS.Domain.Common.Pagination;
+using LMS.Domain.DTOs.Notifications;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
