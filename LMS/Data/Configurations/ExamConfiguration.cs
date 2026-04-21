@@ -25,7 +25,7 @@ namespace LMS.Data.Configurations
             builder.HasMany(e => e.Questions)
                 .WithOne(q => q.Exam)
                 .HasForeignKey(q => q.ExamId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.NoAction);
 
             // Exam → Attempts
             builder.HasMany(e => e.Attempts)
