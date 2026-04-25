@@ -1,7 +1,7 @@
-using LMS.Domain.Common.Pagination;
+using LMS.Domain.Abstraction.Repositories;
 using LMS.Domain.DTOs.Courses;
+using LMS.Domain.DTOs.Pagination;
 using LMS.Domain.Models;
-using LMS.Domain.Repositories.Interfaces;
 using LMS.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,6 +17,8 @@ public class CourseRepository : GenericRepository<Course>, ICourseRepository
             .Include(c => c.Materials)
             .Include(c => c.Enrollments)
             .FirstOrDefaultAsync(c => c.Id == courseId, ct);
+
+
 
     public async Task<PagedResult<Course>> GetPagedCoursesAsync(CourseFilterDto filter, CancellationToken ct = default)
     {
@@ -92,4 +94,5 @@ public class CourseRepository : GenericRepository<Course>, ICourseRepository
         => await _dbSet
             .Include(c => c.Materials.OrderBy(m => m.Order))
             .FirstOrDefaultAsync(c => c.Id == courseId, ct);
+
 }

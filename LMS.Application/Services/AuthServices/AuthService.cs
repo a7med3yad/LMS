@@ -1,5 +1,5 @@
-﻿using LMS.Domain.Api.DTOs.Auth;
-using LMS.Domain.DTOs.Auth;
+﻿using LMS.Application.Api.DTOs.Auth;
+using LMS.Application.DTOs.Auth;
 using LMS.Domain.Models;
 using LMS.Domain.Models.Enums;
 using LMS.Infrastructure.Persistence;

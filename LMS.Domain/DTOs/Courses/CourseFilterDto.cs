@@ -1,4 +1,4 @@
-using LMS.Domain.Common.Pagination;
+using LMS.Domain.DTOs.Pagination;
 using LMS.Domain.Models.Enums;
 
 namespace LMS.Domain.DTOs.Courses;

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="MailKit" Version="4.16.0" />
+    <PackageReference Include="MediatR" Version="14.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="10.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="10.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.6" />
@@ -30,6 +31,20 @@
   <ItemGroup>
     <ProjectReference Include="..\LMS.Domain\LMS.Domain.csproj" />
     <ProjectReference Include="..\LMS.Infrastructure\LMS.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Command\Auth\" />
+    <Folder Include="Command\Payment\" />
+    <Folder Include="Query\Auth\" />
+    <Folder Include="Query\Assignment\" />
+    <Folder Include="Query\Enrollment\" />
+    <Folder Include="Query\Exam\" />
+    <Folder Include="Query\Material\" />
+    <Folder Include="Query\Voucher\" />
+    <Folder Include="Query\Payment\" />
+    <Folder Include="Query\User\" />
+    <Folder Include="Query\Notification\" />
   </ItemGroup>
 
 </Project>

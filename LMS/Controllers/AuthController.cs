@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using LMS.Application.Services.AuthServices;
-using LMS.Domain.DTOs.Auth;
+using LMS.Application.DTOs.Auth; 
 
 namespace LMS.Api.Controllers
 {
