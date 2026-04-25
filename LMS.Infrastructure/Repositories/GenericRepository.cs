@@ -1,5 +1,5 @@
 using System.Linq.Expressions;
-using LMS.Domain.Repositories.Interfaces;
+using LMS.Domain.Abstraction.Repositories;
 using LMS.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 

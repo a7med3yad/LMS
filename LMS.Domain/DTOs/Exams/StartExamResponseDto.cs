@@ -1,6 +1,5 @@
-using LMS.Domain.DTOs.Exams;
 
-namespace LMS.DTOs.Exams;
+namespace LMS.Domain.DTOs.Exams;
 
 public record StartExamResponseDto(
     Guid AttemptId,

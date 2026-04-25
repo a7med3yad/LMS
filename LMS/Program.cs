@@ -1,15 +1,13 @@
+using LMS.Application.Abstraction.UnitOfWork;
 using LMS.Application.Services;
 using LMS.Application.Services.AuthServices;
-using LMS.Application.Services.Interfaces;
+using LMS.Domain.Abstraction.Repositories;
 using LMS.Domain.Common;
 using LMS.Domain.Models;
-using LMS.Domain.Repositories.Intercaces;
-using LMS.Domain.Repositories.Interfaces;
 using LMS.Infrastructure.Persistence;
 using LMS.Infrastructure.Repositories;
 using LMS.Infrastructure.Services;
 using LMS.Repositories;
-using LMS.Repositories.Interfaces;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Facebook;
 using Microsoft.AspNetCore.Authentication.Google;
@@ -88,15 +86,6 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // Application Services
 builder.Services.AddScoped<AuthService>();
-builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<ICourseService, CourseService>();
-builder.Services.AddScoped<IMaterialService, MaterialService>();
-builder.Services.AddScoped<IAssignmentService, AssignmentService>();
-builder.Services.AddScoped<IExamService, ExamService>();
-builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
-builder.Services.AddScoped<IPaymentService, PaymentService>();
-builder.Services.AddScoped<IVoucherService, VoucherService>();
-builder.Services.AddScoped<INotificationService, NotificationService>();
 
 // Infrastructure Services
 builder.Services.AddScoped<TokenService>();

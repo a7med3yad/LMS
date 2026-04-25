@@ -1,4 +1,3 @@
-using LMS.DTOs.Exams;
 
 namespace LMS.Domain.DTOs.Exams;
 

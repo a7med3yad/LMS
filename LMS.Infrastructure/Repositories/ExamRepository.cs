@@ -1,5 +1,5 @@
+using LMS.Domain.Abstraction.Repositories;
 using LMS.Domain.Models;
-using LMS.Domain.Repositories.Interfaces;
 using LMS.Infrastructure.Persistence;
 using LMS.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;

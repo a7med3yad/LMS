@@ -27,4 +27,25 @@
     <PackageReference Include="Scalar.AspNetCore" Version="2.14.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Abstraction\Command\Assignment\" />
+    <Folder Include="Abstraction\Command\Auth\" />
+    <Folder Include="Abstraction\Command\Enrollment\" />
+    <Folder Include="Abstraction\Command\Exam\" />
+    <Folder Include="Abstraction\Command\Material\" />
+    <Folder Include="Abstraction\Command\Notification\" />
+    <Folder Include="Abstraction\Command\Payment\" />
+    <Folder Include="Abstraction\Command\User\" />
+    <Folder Include="Abstraction\Command\Voucher\" />
+    <Folder Include="Abstraction\Query\Assignment\" />
+    <Folder Include="Abstraction\Query\Auth\" />
+    <Folder Include="Abstraction\Query\Enrollment\" />
+    <Folder Include="Abstraction\Query\Exam\" />
+    <Folder Include="Abstraction\Query\Material\" />
+    <Folder Include="Abstraction\Query\Notification\" />
+    <Folder Include="Abstraction\Query\Payment\" />
+    <Folder Include="Abstraction\Query\User\" />
+    <Folder Include="Abstraction\Query\Voucher\" />
+  </ItemGroup>
+
 </Project>

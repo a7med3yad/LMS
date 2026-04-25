@@ -1,9 +1,9 @@
-using LMS.Domain.Common.Pagination;
+using LMS.Domain.Abstraction.Repositories;
+using LMS.Domain.DTOs.Pagination;
 using LMS.Domain.Models;
 using LMS.Domain.Models.Enums;
 using LMS.Infrastructure.Persistence;
 using LMS.Infrastructure.Repositories;
-using LMS.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace LMS.Repositories;
