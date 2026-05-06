@@ -1,0 +1,17 @@
+using LMS.Domain.Models.Enums;
+
+namespace LMS.Domain.DTOs.Assignments;
+
+public record AssignmentDto(
+    Guid Id,
+    string TitleAr,
+    string TitleEn,
+    string DescriptionAr,
+    string DescriptionEn,
+    SubmissionType SubmissionType,
+    DateTime DeadLine,
+    int MaxGrade,
+    bool IsPublished,
+    Guid CourseId,
+    DateTime CreatedAt
+);

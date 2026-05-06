@@ -1,0 +1,59 @@
+<<<<<<< HEAD
+<Project Sdk="Microsoft.NET.Sdk">
+=======
+﻿<Project Sdk="Microsoft.NET.Sdk">
+>>>>>>> 4450aad95aa0059499e5c99c961c831b227af253
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="4.16.0" />
+    <PackageReference Include="MediatR" Version="14.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="10.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="10.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.6">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.6">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="MimeKit" Version="4.16.0" />
+    <PackageReference Include="Scalar.AspNetCore" Version="2.14.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LMS.Domain\LMS.Domain.csproj" />
+    <ProjectReference Include="..\LMS.Infrastructure\LMS.Infrastructure.csproj" />
+  </ItemGroup>
+
+<<<<<<< HEAD
+
+
+=======
+  <ItemGroup>
+    <Folder Include="Command\Auth\" />
+    <Folder Include="Command\Payment\" />
+    <Folder Include="Query\Auth\" />
+    <Folder Include="Query\Assignment\" />
+    <Folder Include="Query\Enrollment\" />
+    <Folder Include="Query\Exam\" />
+    <Folder Include="Query\Material\" />
+    <Folder Include="Query\Voucher\" />
+    <Folder Include="Query\Payment\" />
+    <Folder Include="Query\User\" />
+    <Folder Include="Query\Notification\" />
+  </ItemGroup>
+>>>>>>> 4450aad95aa0059499e5c99c961c831b227af253
+
+</Project>
