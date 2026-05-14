@@ -1,15 +1,7 @@
-<<<<<<< HEAD
 using LMS.Application.Abstraction.UnitOfWork;
 using LMS.Application.Common.Exceptions;
 using LMS.Application.DTOs.Enrollments;
 using LMS.Application.DTOs.Users;
-=======
-﻿using LMS.Application.Abstraction.UnitOfWork;
-using LMS.Application.Common.Exceptions;
-using LMS.Application.DTOs.Enrollments;
-using LMS.Application.DTOs.Users;
-using LMS.Domain.DTOs.Enrollments;
->>>>>>> 4450aad95aa0059499e5c99c961c831b227af253
 using LMS.Domain.Models.Enums;
 using MediatR;
 
@@ -25,15 +17,8 @@ public class EnrollHandler : IRequestHandler<EnrollCommand, EnrollmentDto>
         if (await _uow.Enrollments.IsEnrolledAsync(request.StudentId, request.Dto.CourseId, ct))
             throw new ConflictException("Already enrolled in this course.");
 
-<<<<<<< HEAD
         var course = await _uow.Courses.GetByIdAsync(request.Dto.CourseId, ct)
             ?? throw new NotFoundException("Course", request.Dto.CourseId);
-=======
-        await _uow.Courses.GetByIdAsync(request.Dto.CourseId, ct)
-            is not { } course
-            ? throw new NotFoundException("Course", request.Dto.CourseId)
-            : course;
->>>>>>> 4450aad95aa0059499e5c99c961c831b227af253
 
         var enrollment = new Domain.Models.Enrollment
         {

@@ -1,5 +1,6 @@
-﻿using LMS.Application.Api.DTOs.Auth;
+using LMS.Application.Api.DTOs.Auth;
 using LMS.Application.DTOs.Auth;
+using LMS.Domain.Common.Constants;
 using LMS.Domain.Models;
 using LMS.Domain.Models.Enums;
 using LMS.Infrastructure.Persistence;
@@ -43,6 +44,11 @@ namespace LMS.Application.Services.AuthServices
             if (existingUser != null)
                 throw new Exception("Email already registered");
 
+            // Map domain enum to Identity role name
+            var identityRole = dto.Role == UserRole.Instructor
+                ? Roles.Instructor
+                : Roles.Student;
+
             var user = new ApplicationUser
             {
                 Email = dto.Email,
@@ -56,7 +62,11 @@ namespace LMS.Application.Services.AuthServices
             if (!result.Succeeded)
                 throw new Exception(string.Join(", ", result.Errors.Select(e => e.Description)));
 
-            await _userManager.AddToRoleAsync(user, "User");
+            // Ensure the role exists (safety net — RoleSeeder should have created it)
+            if (!await _roleManager.RoleExistsAsync(identityRole))
+                await _roleManager.CreateAsync(new IdentityRole<Guid>(identityRole));
+
+            await _userManager.AddToRoleAsync(user, identityRole);
 
             if (!_otpService.CanRequestOtp(user))
                 throw new Exception("Too many OTP requests. Please wait.");
@@ -313,7 +323,11 @@ namespace LMS.Application.Services.AuthServices
                 if (!createResult.Succeeded)
                     throw new Exception(string.Join(", ", createResult.Errors.Select(e => e.Description)));
 
-                await _userManager.AddToRoleAsync(user, "User");
+                // Ensure the role exists before assignment
+                if (!await _roleManager.RoleExistsAsync(Roles.Student))
+                    await _roleManager.CreateAsync(new IdentityRole<Guid>(Roles.Student));
+
+                await _userManager.AddToRoleAsync(user, Roles.Student);
 
                 user = await _userManager.FindByEmailAsync(email)
                     ?? throw new Exception("User not found");

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 using LMS.Application.Common.Exceptions;
-=======
-﻿using LMS.Application.Common.Exceptions;
->>>>>>> 4450aad95aa0059499e5c99c961c831b227af253
 using System.Net;
 using System.Text.Json;
 
@@ -41,18 +37,22 @@ public class ExceptionMiddleware
         {
             await Write(context, HttpStatusCode.BadRequest, ex.Message);
         }
-<<<<<<< HEAD
         catch (PaymentException ex)
         {
             await Write(context, HttpStatusCode.PaymentRequired, ex.Message);
         }
-=======
->>>>>>> 4450aad95aa0059499e5c99c961c831b227af253
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Unhandled exception");
+            _logger.LogError(ex,
+                "Unhandled exception on {Method} {Path}. Message: {Message}",
+                context.Request.Method,
+                context.Request.Path,
+                ex.Message);
+
+            var isDev = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development";
+
             await Write(context, HttpStatusCode.InternalServerError,
-                "An unexpected error occurred.");
+                isDev ? ex.ToString() : "An unexpected error occurred.");
         }
     }
 

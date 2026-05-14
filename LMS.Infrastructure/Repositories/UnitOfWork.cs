@@ -18,10 +18,7 @@ public class UnitOfWork : IUnitOfWork
     private IAssignmentRepository? _assignments;
     private IExamRepository? _exams;
 
-<<<<<<< HEAD
     private IRepository<Payment>? _payments;
-=======
->>>>>>> 4450aad95aa0059499e5c99c961c831b227af253
     private IRepository<Material>? _materials;
     private IRepository<Notification>? _notifications;
     private IRepository<Voucher>? _vouchers;
@@ -42,10 +39,7 @@ public class UnitOfWork : IUnitOfWork
     public IAssignmentRepository Assignments => _assignments ??= new AssignmentRepository(_context);
     public IExamRepository Exams => _exams ??= new ExamRepository(_context);
 
-<<<<<<< HEAD
     public IRepository<Payment> Payments => _payments ??= new GenericRepository<Payment>(_context);
-=======
->>>>>>> 4450aad95aa0059499e5c99c961c831b227af253
     public IRepository<Material> Materials => _materials ??= new GenericRepository<Material>(_context);
     public IRepository<Notification> Notifications => _notifications ??= new GenericRepository<Notification>(_context);
     public IRepository<Voucher> Vouchers => _vouchers ??= new GenericRepository<Voucher>(_context);

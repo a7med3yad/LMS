@@ -22,7 +22,7 @@ public class EmailService
         message.Body = new TextPart("plain")
         {
             Text = $"""
-                Your IAM THE SEA verification code is:
+                Your LMS verification code is:
 
                 {otp}
 

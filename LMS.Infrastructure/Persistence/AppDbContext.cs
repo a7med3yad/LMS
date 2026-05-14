@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 using LMS.Domain.Models;
-=======
-﻿using LMS.Domain.Models;
->>>>>>> 4450aad95aa0059499e5c99c961c831b227af253
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -29,10 +25,7 @@ namespace LMS.Infrastructure.Persistence
         public DbSet<ExamAttempt> ExamAttempts { get; set; }
         public DbSet<ExamAnswer> ExamAnswers { get; set; }
         public DbSet<Enrollment> Enrollments { get; set; }
-<<<<<<< HEAD
         public DbSet<Payment> Payments { get; set; }
-=======
->>>>>>> 4450aad95aa0059499e5c99c961c831b227af253
         public DbSet<Voucher> Vouchers { get; set; }
         public DbSet<Notification> Notifications { get; set; }
 

@@ -12,11 +12,7 @@ public interface IUnitOfWork : IDisposable
     IAssignmentRepository Assignments { get; }
     IExamRepository Exams { get; }
 
-    // Generic access for entities without dedicated repositories
-<<<<<<< HEAD
     IRepository<Payment> Payments { get; }
-=======
->>>>>>> 4450aad95aa0059499e5c99c961c831b227af253
     IRepository<Material> Materials { get; }
     IRepository<Notification> Notifications { get; }
     IRepository<Voucher> Vouchers { get; }
